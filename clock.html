@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Relógio Widget</title>
+  <style>
+    #relogio {
+      font-size: 2em;
+      text-align: center;
+      margin: 50px;
+    }
+  </style>
+</head>
+<body>
+
+<div id="relogio"></div>
+
+<script>
+  function atualizarRelogio() {
+    var agora = new Date();
+    var horas = agora.getHours();
+    var minutos = agora.getMinutes();
+    var segundos = agora.getSeconds();
+
+    horas = (horas < 10) ? "0" + horas : horas;
+    minutos = (minutos < 10) ? "0" + minutos : minutos;
+    segundos = (segundos < 10) ? "0" + segundos : segundos;
+
+    var horaFormatada = horas + ":" + minutos + ":" + segundos;
+
+    document.getElementById("relogio").innerHTML = horaFormatada;
+  }
+
+  // Atualizar a cada segundo
+  setInterval(atualizarRelogio, 1000);
+
+  // Inicializar o relógio
+  atualizarRelogio();
+</script>
+
+</body>
+</html>
